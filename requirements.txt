@@ -1,0 +1,14 @@
+# 本项目**零第三方依赖**，仅使用 Python 标准库（3.9+）。
+#
+# 之所以不引入 LangChain / OpenAI SDK 等依赖，是为了让评审老师
+# clone 下来无需联网、无需配置环境即可运行与测试；同时把
+# 「LLM 调用、Agent 循环」这些作业要求考察的核心机制完整地暴露出来。
+#
+# 如果你希望改用官方 SDK，只需替换 codereview/llm.py 中的
+# OpenAICompatLLM.chat 实现，其余代码不用动（依赖倒置）。
+#
+# 可选依赖（非必需，用于开发体验）：
+#   ruff    —— 代码风格检查
+#   pytest  —— 更友好的测试运行器（标准库 unittest 亦可）
+#
+# 安装可选依赖：pip install -r requirements-dev.txt

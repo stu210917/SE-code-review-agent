@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "code-review-agent"
+version = "1.0.0"
+description = "基于 ReAct 循环的代码审查 Agent：零依赖、可离线运行"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+keywords = ["agent", "llm", "code-review", "static-analysis", "react"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Software Development :: Quality Assurance",
+    "Intended Audience :: Education",
+]
+# 运行时零依赖：这里刻意保持为空，详见 requirements.txt 中的说明
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0", "ruff>=0.4"]
+
+[project.scripts]
+codereview = "codereview.cli:main"
+
+[project.urls]
+Documentation = "https://example.invalid/code-review-agent"
+
+[tool.setuptools]
+packages = ["codereview", "codereview.tools"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "UP", "B", "C4", "SIM"]
+ignore = [
+    "E501",    # 行宽由 line-length 控制，中文注释不强制折行
+    "N802",    # 需要覆写 do_GET 等 HTTP 处理器的命名约定
+    "N803",    # 允许参数使用 CAPS 常量名（测试里大量使用）
+    "SIM108",  # 三元表达式不一定比 if/else 更清晰
+]
