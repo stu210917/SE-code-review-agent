@@ -158,11 +158,4 @@ python -m unittest discover -s tests -t .     # 149 个用例，约 0.3 秒，�
 
 ---
 
-## 提交物
-
-| 提交物 | 位置 |
-| --- | --- |
-| ① 源代码 | 本目录（打包为「学号姓名.zip」提交到 `001Homework1`） |
-| ② README / Design 文档 | [`README.md`](README.md)、[`DESIGN.md`](DESIGN.md) |
-
 > [`examples/buggy_sample.py`](examples/buggy_sample.py) 中的「硬编码口令」「eval 执行」等均为**故意写坏的反面教材**，密钥全是虚构字符串，请勿在真实环境运行。
